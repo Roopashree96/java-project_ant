@@ -9,7 +9,7 @@ pipeline {
 		sh 'ant -f build.xml'
                }
            }
-       stage('unit Test'} {
+       stage('unit Test') {
         steps {
           sh 'ant -f test.xml'
           junit 'reports/results.xml'
