@@ -1,6 +1,6 @@
 pipeline {
     agent any
-      stages{
+      stages {
          stage('unit Test') {
         steps {
           sh 'ant -f test.xm -v '
@@ -20,7 +20,7 @@ pipeline {
    
   post {
        always {
-        archiveArtifacts artifacts: 'dist/*.jar',fingerprint:true
+        archiveArtifacts artifacts: 'dist/*.jar',fingerprint: true
         }
     }
 }
