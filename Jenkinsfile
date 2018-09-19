@@ -24,7 +24,15 @@ pipeline {
      }
 
    }     
- } 
+    stage("Running on Centos") {
+       steps {
+        
+              sh "wget http://roopa/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar" 
+              sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
+             }
+         }
+     }
+               
    
   post {
        always {
