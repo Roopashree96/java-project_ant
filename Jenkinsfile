@@ -1,20 +1,21 @@
 pipeline {
     agent any
-     options {
-      buildDiscards(logRotator(numTokeepstr: '2',artifactsNumTokeepstr:'1'))
-      }
-      stages {
+      stages{
+         stage('unit Test') {
+        steps {
+          sh 'ant -f test.xm -v '
+          junit 'reports/results.xml'
+          }
+        }
+      
          stage('build') {
 	 steps {
 		sh 'ant -f build.xml'
                }
            }
-       stage('unit Test') {
-        steps {
-          sh 'ant -f test.xml'
-          junit 'reports/results.xml'
+    
           }
-      }
+      
   }
    
   post {
